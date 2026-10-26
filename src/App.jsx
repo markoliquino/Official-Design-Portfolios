@@ -184,7 +184,7 @@ function App() {
             <p className="eyebrow"><span className="availability-dot" /> IT SUPPORT & INFRASTRUCTURE | MARK ANTHONY OLIQUINO</p>
             <h1>Hardware Specialist &amp;<br />IT Technical Support</h1>
             <p className="hero-intro">Focused on computer hardware, network troubleshooting, system maintenance, and reliable IT infrastructure.</p>
-            <div className="hero-actions"><a className="button button-dark" href="#work">View IT projects <Arrow /></a><a className="button button-outline" href="#contact">Contact me <Arrow diagonal /></a></div>
+            <div className="hero-actions"><a className="button button-dark" href="#work">View IT projects <Arrow /></a><a className="button button-outline" href="/Mark-Anthony-Oliquino-Resume.pdf" download>Download resume <Arrow diagonal /></a><a className="button button-outline" href="#contact">Contact me <Arrow diagonal /></a></div>
             <div className="hero-services" aria-label="Technical support specialties">
               <a className="hero-service-card" href="#skills"><ServiceIcon type="hardware" /><span>Hardware support</span></a>
               <a className="hero-service-card" href="#skills"><ServiceIcon type="network" /><span>Networking</span></a>
@@ -233,7 +233,7 @@ function App() {
 
         <section className="resume section-grid" id="resume">
           <div className="section-label"><span>05 / RESUME</span><span className="label-rule" /></div>
-          <div className="resume-content"><div className="resume-heading"><div><p className="section-kicker">DOWNLOADABLE PDF</p><h2>Resume & experience.</h2></div><a className="button button-dark" href="/Mark-Anthony-Oliquino-Resume.pdf" download>Download resume <Arrow diagonal /></a></div><p className="resume-note">A concise PDF copy of my technical support experience, skills, and contact details.</p></div>
+          <div className="resume-content"><div className="resume-heading"><div><p className="section-kicker">DOWNLOADABLE PDF</p><h2>Resume & experience.</h2></div></div><p className="resume-note">A concise PDF copy of my technical support experience, skills, and contact details.</p></div>
         </section>
 
         <section className="contact" id="contact"><p className="section-kicker">06 / CONTACT</p><div className="contact-main"><h2>Need reliable<br /><em>IT support?</em></h2><a className="contact-circle" href="#viber-contact" aria-label="Message Mark Anthony Oliquino on Viber"><span>MESSAGE ME<br />ON VIBER</span><b>↗</b></a></div><div className="contact-bottom"><p>I’m ready to help keep your people and systems productive.<br />Let’s talk about your support needs.</p><a href="mailto:markanthonyoliquino45@gmail.com?subject=IT%20support%20opportunity">markanthonyoliquino45@gmail.com <Arrow diagonal /></a></div><div className="viber-card" id="viber-contact"><div className="viber-copy"><p className="section-kicker">VIBER · DIRECT CONTACT</p><h3>Scan to add me<br />and start a chat.</h3><p>Open Viber and scan this code to add my number, then message me directly.</p><a href="tel:09185507126">Call 09185507126 <Arrow diagonal /></a><a className="viber-text-link" href="/viber-qr.jpg" target="_blank" rel="noreferrer">Open my Viber QR <Arrow diagonal /></a></div><a className="viber-qr-link" href="/viber-qr.jpg" target="_blank" rel="noreferrer" aria-label="Open the Viber QR code"><img className="viber-qr" src="/viber-qr.jpg" alt="Viber QR code for Mark Anthony Oliquino" /></a></div></section>
