@@ -16,6 +16,30 @@ const projects = [
   { number: '03', name: 'CCTV Installation and Configuration', type: 'CCTV · NVR SYSTEMS', description: 'Installed and configured CCTV cameras and NVR systems, set up recording and network access, and tested camera feeds and system operation.', stack: 'CCTV · NVR · Network Setup', image: '/3.jpg' },
 ]
 
+const projectDetails = [
+  {
+    slug: 'pc-build-deployment',
+    project: projects[0],
+    overview: 'Prepared desktop workstations from component verification and BIOS setup through operating system installation, driver updates, and user handoff.',
+    tasks: ['Verified hardware components and assembled workstation systems.', 'Configured BIOS and UEFI settings before installation.', 'Installed Windows 11, drivers, and required updates.', 'Checked system operation and prepared each workstation for user handoff.'],
+    focus: ['Hardware verification', 'BIOS and UEFI setup', 'Windows 11 installation', 'Drivers and workstation handoff'],
+  },
+  {
+    slug: 'hardware-troubleshooting',
+    project: projects[1],
+    overview: 'Used a repeatable diagnostic process to identify and resolve common desktop and laptop hardware faults, then confirmed systems were stable after repair.',
+    tasks: ['Investigated boot failures, overheating, and unexpected shutdowns.', 'Checked storage health and memory for errors.', 'Isolated likely hardware faults before replacing or upgrading components.', 'Retested system operation after troubleshooting.'],
+    focus: ['POST and boot diagnostics', 'SMART storage checks', 'Memory testing', 'Hardware repair and upgrades'],
+  },
+  {
+    slug: 'cctv-installation-configuration',
+    project: projects[2],
+    overview: 'Installed and configured CCTV cameras and NVR systems, set up recording and network access, and tested camera feeds and system operation.',
+    tasks: ['Installed and connected IP cameras and NVR equipment.', 'Configured recording settings and network access.', 'Checked PoE connectivity and camera feeds.', 'Tested the system to confirm recording and operation.'],
+    focus: ['IP camera setup', 'NVR configuration', 'PoE connectivity', 'Network access and recording'],
+  },
+]
+
 function Arrow({ diagonal = false }) {
   return <span aria-hidden="true">{diagonal ? '↗' : '→'}</span>
 }
@@ -102,6 +126,47 @@ function ParticleBackdrop() {
 }
 
 function App() {
+  const selectedProject = projectDetails.find(({ slug }) => window.location.pathname === `/projects/${slug}`)
+
+  if (selectedProject) {
+    return (
+      <>
+        <ParticleBackdrop />
+        <div className="site-shell project-detail-shell">
+          <header className="topbar">
+            <a className="portfolio-brand" href="/">IT PORTFOLIO<span>.</span></a>
+            <nav aria-label="Project navigation"><a href="/">Back to portfolio</a></nav>
+          </header>
+          <main>
+            <article className="project-detail">
+              <a className="project-detail-back" href="/#work">â† Back to projects</a>
+              <p className="section-kicker">PROJECT {selectedProject.project.number} / 03 Â· {selectedProject.project.type}</p>
+              <h1>{selectedProject.project.name}</h1>
+              <img className="project-detail-image" src={selectedProject.project.image} alt={`${selectedProject.project.name} technical work`} />
+              {selectedProject.slug === 'cctv-installation-configuration' && (
+                <section className="cctv-media" aria-labelledby="cctv-media-heading">
+                  <h2 id="cctv-media-heading">Installation photos and video</h2>
+                  <div className="cctv-media-grid">
+                    <figure><img src="/cctv-2-privacy.jpg" alt="CCTV installation photo with camera footage blurred for privacy" /><figcaption>CCTV installation photo</figcaption></figure>
+                    <figure><img src="/cctv-3.jpg" alt="CCTV installation photo 2" /><figcaption>CCTV installation photo</figcaption></figure>
+                    <figure className="cctv-video"><video controls preload="metadata" playsInline><source src="/cctv-antipolo.mp4" type="video/mp4" />Your browser does not support MP4 video.</video><figcaption>CCTV installation video</figcaption></figure>
+                  </div>
+                </section>
+              )}
+              <div className="project-detail-copy">
+                <div><h2>Project overview</h2><p>{selectedProject.overview}</p></div>
+                <div><h2>Work completed</h2><ul>{selectedProject.tasks.map((task) => <li key={task}>{task}</li>)}</ul></div>
+                <div className="project-detail-focus"><h2>Skills and focus areas</h2><ul>{selectedProject.focus.map((item) => <li key={item}>{item}</li>)}</ul></div>
+                <p className="project-detail-stack">{selectedProject.project.stack}</p>
+              </div>
+            </article>
+          </main>
+          <footer className="footer"><a href="/#work">Return to all projects</a><span>IT TECHNICAL SUPPORT Â· Â© 2026</span></footer>
+        </div>
+      </>
+    )
+  }
+
   return (
     <>
       <ParticleBackdrop />
@@ -154,7 +219,7 @@ function App() {
           <div className="experience-content"><div className="section-heading-row"><div><p className="section-kicker">SUPPORT & OPERATIONS</p><h2>Hands-on help.<br /><em>Solid follow-through.</em></h2></div><p className="heading-aside">Work across IT support, service desk, client solutions, and end-user service.</p></div>
             <div className="role-list">
               <article className="role"><span className="role-date">MAR 2026 — PRESENT</span><div><h3>IT Technical Support</h3><p className="role-company">Globalhome Tile Corporation</p><p className="role-desc">Install and support CCTV/NVR systems; troubleshoot computers, printers, LAN/Wi-Fi, SAP connectivity, and other IT equipment.</p></div><span className="role-type">FULL TIME</span></article>
-              <article className="role"><span className="role-date">JAN 2025 — JAN 2026</span><div><h3>IT Help Desk</h3><p className="role-company">Flexis Lab</p><p className="role-desc">Provided technical support for hardware, software, and network concerns; helped users troubleshoot and maintain systems; resolved IT issues to support business operations.</p></div><span className="role-type">FULL TIME</span></article>
+              <article className="role"><span className="role-date">JAN 2025 — JAN 2026</span><div><h3>IT Specialist</h3><p className="role-company">Flexis Lab</p><p className="role-desc">Provided technical support for hardware, software, and network concerns; helped users troubleshoot and maintain systems; resolved IT issues to support business operations.</p></div><span className="role-type">FULL TIME</span></article>
               <article className="role"><span className="role-date">MAR 2023 — JAN 2025</span><div><h3>Account Executive</h3><p className="role-company">American Technologist Inc.</p><p className="role-desc">Managed client accounts, recommended technology solutions, conducted sales presentations and consultations, and maintained customer relationships.</p></div><span className="role-type">FULL TIME</span></article>
               <article className="role"><span className="role-date">SEP 2022 — JAN 2023</span><div><h3>Store Associate</h3><p className="role-company">UNIQLO</p><p className="role-desc">Delivered customer service and product assistance, supported sales operations, and maintained store standards.</p></div><span className="role-type">FULL TIME</span></article>
               <article className="role"><span className="role-date">AUG 2019 — NOV 2019</span><div><h3>IT Help Desk Intern</h3><p className="role-company">Fusion BPO Services Philippines Inc.</p><p className="role-desc">Assisted with LAN/WAN troubleshooting and basic network configuration; supported end users with hardware and software issues and gained hands-on service desk experience.</p></div><span className="role-type">INTERN</span></article>
@@ -163,7 +228,7 @@ function App() {
         </section>
 
         <section className="work" id="work"><div className="work-heading"><div><p className="section-kicker">04 / IT PROJECTS</p><h2>Diagnose. Repair. <em>Deploy.</em></h2></div><a className="text-link" href="mailto:markanthonyoliquino45@gmail.com?subject=IT%20support%20opportunity">Discuss a support role <Arrow diagonal /></a></div>
-          <div className="project-list">{projects.map((project, index) => <article className={`project project-${index + 1}`} key={project.number}><div className={`project-visual${project.image ? ' project-photo' : ''}`}>{project.image ? <img className="project-photo-image" src={project.image} alt={`${project.name} technical work`} /> : <div className="project-shape"><span>{project.number}</span><b>{index === 0 ? 'N' : index === 1 ? 'g.' : 'f'}</b></div>}<span className="visual-tag">{project.type}</span></div><div className="project-info"><div><span className="project-number">{project.number} / 03</span><h3>{project.name} <Arrow diagonal /></h3><p>{project.description}</p></div><span className="project-stack">{project.stack}</span></div></article>)}</div>
+          <div className="project-list">{projects.map((project, index) => <article className={`project project-${index + 1}`} key={project.number}><div className={`project-visual${project.image ? ' project-photo' : ''}`}>{project.image ? <img className="project-photo-image" src={project.image} alt={`${project.name} technical work`} /> : <div className="project-shape"><span>{project.number}</span><b>{index === 0 ? 'N' : index === 1 ? 'g.' : 'f'}</b></div>}<span className="visual-tag">{project.type}</span></div><div className="project-info"><div><span className="project-number">{project.number} / 03</span><h3><a className="project-title-link" href={`/projects/${projectDetails[index].slug}`}>{project.name} <Arrow diagonal /></a></h3><p>{project.description}</p></div><span className="project-stack">{project.stack}</span></div></article>)}</div>
         </section>
 
         <section className="resume section-grid" id="resume">
